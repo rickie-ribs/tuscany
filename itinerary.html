@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuscany Itinerary · July 4–8 · Relais Vignale</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1A1714;--cream:#F4EFE6;--sand:#E6DDD0;--terra:#9B5B38;
+    --chianti:#6B2535;--sage:#6E8466;--gold:#C09A58;--muted:#8A7E72;--white:#FDFAF5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+  .hero{background:var(--ink);min-height:240px;display:flex;align-items:flex-end;padding:0 0 44px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 100% at 100% 0%,rgba(107,37,53,0.45) 0%,transparent 60%),radial-gradient(ellipse 50% 80% at 0% 100%,rgba(155,91,56,0.25) 0%,transparent 55%);}
+  .hero-inner{position:relative;max-width:900px;margin:0 auto;padding:0 32px;width:100%;}
+  .hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,7vw,64px);font-weight:400;color:var(--white);line-height:1.05;margin-bottom:16px;}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero-meta{display:flex;gap:24px;flex-wrap:wrap;}
+  .hero-meta span{font-size:12px;color:rgba(253,250,245,0.5);letter-spacing:0.5px;}
+  .hero-meta span strong{color:rgba(253,250,245,0.8);font-weight:400;}
+  .body-wrap{max-width:900px;margin:0 auto;padding:0 32px 80px;}
+  .intro{background:var(--white);border-left:4px solid var(--gold);padding:18px 22px;margin:34px 0 44px;font-size:13.5px;color:#4A4238;line-height:1.7;border-radius:0 2px 2px 0;}
+  .intro strong{color:var(--terra);}
+  .day-block{margin-bottom:40px;animation:rise 0.5s ease both;}
+  .day-block:nth-of-type(1){animation-delay:0.05s;}
+  .day-block:nth-of-type(2){animation-delay:0.13s;}
+  .day-block:nth-of-type(3){animation-delay:0.21s;}
+  .day-block:nth-of-type(4){animation-delay:0.29s;}
+  .day-block:nth-of-type(5){animation-delay:0.37s;}
+  @keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+  .day-header{display:flex;align-items:baseline;gap:16px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--sand);}
+  .day-num{font-family:'Playfair Display',serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);flex-shrink:0;min-width:52px;}
+  .day-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--ink);line-height:1.2;flex:1;}
+  .day-title em{font-style:italic;}
+  .day-date{font-size:11px;color:var(--muted);letter-spacing:0.5px;flex-shrink:0;}
+  .segments{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+  @media(max-width:700px){.segments{grid-template-columns:1fr;}}
+  .seg{background:var(--white);border-radius:3px;padding:18px 18px 16px;border-top:3px solid transparent;}
+  .seg.morning{border-top-color:var(--sage);}
+  .seg.afternoon{border-top-color:var(--gold);}
+  .seg.evening{border-top-color:var(--chianti);}
+  .seg-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .seg.morning .seg-label{color:var(--sage);}
+  .seg.afternoon .seg-label{color:var(--gold);}
+  .seg.evening .seg-label{color:var(--chianti);}
+  .seg-activity{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:var(--ink);margin-bottom:8px;line-height:1.3;}
+  .seg-detail{font-size:12px;color:#5A5048;line-height:1.6;}
+  .seg-detail em{font-style:normal;color:var(--terra);font-weight:500;}
+  .seg-tag{display:inline-block;margin-top:10px;padding:2px 8px;border-radius:20px;font-size:10px;letter-spacing:0.5px;border:1px solid;}
+  .tag-wine{color:var(--chianti);border-color:rgba(107,37,53,0.35);background:rgba(107,37,53,0.05);}
+  .tag-active{color:var(--sage);border-color:rgba(110,132,102,0.35);background:rgba(110,132,102,0.06);}
+  .tag-culture{color:#5A4A28;border-color:rgba(192,154,88,0.4);background:rgba(192,154,88,0.08);}
+  .tag-food{color:var(--terra);border-color:rgba(155,91,56,0.35);background:rgba(155,91,56,0.06);}
+  .tag-relax{color:var(--muted);border-color:rgba(138,126,114,0.35);background:rgba(138,126,114,0.06);}
+  .tag-confirmed{color:#2A5C3F;border-color:rgba(42,92,63,0.35);background:rgba(42,92,63,0.07);}
+  .seg-timing strong{color:var(--ink);font-weight:500;}
+  .drive-note{font-size:10.5px;color:var(--muted);margin-top:9px;padding-top:8px;border-top:1px dashed var(--sand);letter-spacing:0.2px;}
+  .drive-note::before{content:'↗ ';color:var(--gold);}
+  .seg-timing{margin-top:8px;padding-top:8px;border-top:1px dashed var(--sand);font-size:10.5px;color:var(--muted);letter-spacing:0.2px;}
+  .seg-timing::before{content:'⏱ ';font-size:10px;}
+  .day-note{margin-top:12px;padding:10px 16px;background:#f9f4ec;border-left:3px solid var(--gold);font-size:12px;color:var(--muted);line-height:1.6;border-radius:0 2px 2px 0;}
+  .day-note strong{color:var(--terra);}
+  .logistics{margin-top:50px;background:var(--ink);color:var(--cream);border-radius:3px;padding:32px 32px 28px;}
+  .logistics h3{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;color:var(--gold);margin-bottom:20px;}
+  .logistics-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:600px){.logistics-grid{grid-template-columns:1fr;}}
+  .log-item h4{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .log-item p{font-size:12.5px;color:rgba(244,239,230,0.7);line-height:1.7;}
+  .log-item p strong{color:var(--cream);font-weight:400;}
+  .alternatives{margin-top:40px;}
+  .alt-header{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--sand);flex-wrap:wrap;}
+  .alt-header h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--ink);}
+  .alt-header p{font-size:12px;color:var(--muted);}
+  .alt-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:600px){.alt-grid{grid-template-columns:1fr;}}
+  .alt-card{background:var(--white);border-radius:3px;padding:18px 20px;border-left:3px solid var(--sand);transition:border-left-color 0.2s;}
+  .alt-card:hover{border-left-color:var(--gold);}
+  .alt-card-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:var(--ink);margin-bottom:6px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .alt-card-name .seg-tag{margin-top:0;flex-shrink:0;}
+  .alt-card-detail{font-size:12px;color:#5A5048;line-height:1.65;}
+  .alt-card-detail em{font-style:normal;color:var(--terra);font-weight:500;}
+  .alt-swap{margin-top:8px;font-size:11px;color:var(--muted);font-style:italic;padding-top:7px;border-top:1px dashed var(--sand);}
+  footer{text-align:center;padding:28px 20px;font-size:11px;color:var(--muted);letter-spacing:0.5px;border-top:1px solid var(--sand);margin-top:48px;}
+
+  /* ── CALENDAR ── */
+  .cal{margin:34px 0 44px;border:1px solid var(--sand);border-radius:3px;overflow:hidden;}
+  .cal-head{display:grid;grid-template-columns:80px 1fr 1fr 1fr;background:var(--ink);}
+  .cal-head-cell{padding:8px 12px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(253,250,245,0.5);}
+  .cal-head-cell.day-col{color:var(--gold);}
+  .cal-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr;border-top:1px solid var(--sand);}
+  .cal-row:first-of-type{border-top:none;}
+  .cal-day{background:var(--ink);padding:10px 12px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.06);}
+  .cal-day-num{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:var(--gold);line-height:1;}
+  .cal-day-label{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(253,250,245,0.4);margin-top:3px;}
+  .cal-cell{background:var(--white);padding:10px 12px;border-right:1px solid var(--sand);display:flex;flex-direction:column;gap:3px;}
+  .cal-cell:last-child{border-right:none;}
+  .cal-cell-time{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+  .cal-cell-time.m{color:var(--sage);}
+  .cal-cell-time.a{color:var(--gold);}
+  .cal-cell-time.e{color:var(--chianti);}
+  .cal-cell-text{font-size:12px;color:var(--ink);line-height:1.4;}
+  .cal-cell-text em{font-style:normal;font-size:10px;color:var(--terra);font-weight:500;}
+  .cal-cell.empty{background:var(--cream);}
+  @media(max-width:600px){
+    .cal-head{grid-template-columns:60px 1fr 1fr 1fr;}
+    .cal-row{grid-template-columns:60px 1fr 1fr 1fr;}
+    .cal-cell-text{font-size:11px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Based at Relais Vignale · Radda in Chianti</div>
+    <h1>4 Days in<br><em>Chianti Classico</em></h1>
+    <div class="hero-meta">
+      <span><strong>July 4–8</strong> · 4 nights</span>
+      <span><strong>3 couples</strong> · 6 guests</span>
+      <span><strong>Florence</strong> in &amp; out</span>
+      <span>Wine · Culture · Food · Siena · Chianti hilltowns</span>
+    </div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="cal">
+    <div class="cal-head">
+      <div class="cal-head-cell day-col"></div>
+      <div class="cal-head-cell">Morning</div>
+      <div class="cal-head-cell">Midday / Afternoon</div>
+      <div class="cal-head-cell">Evening</div>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="cal-row">
+      <div class="cal-day">
+        <div class="cal-day-num">Sat 4</div>
+        <div class="cal-day-label">July</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time m">Morning</div>
+        <div class="cal-cell-text">Florence arrival · drive to Radda</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time a">Afternoon</div>
+        <div class="cal-cell-text">Check in · explore Radda on foot · pool</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time e">Evening</div>
+        <div class="cal-cell-text">Dinner at Relais Vignale <em>· confirmed 8pm</em></div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="cal-row">
+      <div class="cal-day">
+        <div class="cal-day-num">Sun 5</div>
+        <div class="cal-day-label">July</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time m">Morning</div>
+        <div class="cal-cell-text">Castellina in Chianti · Via delle Volte</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time a">Afternoon</div>
+        <div class="cal-cell-text">Castelvecchi Winery tour <em>· confirmed 12:30pm</em></div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time e">Evening</div>
+        <div class="cal-cell-text">Dinner at Osteria Volpaia or Radda</div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="cal-row">
+      <div class="cal-day">
+        <div class="cal-day-num">Mon 6</div>
+        <div class="cal-day-label">July</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time m">Morning</div>
+        <div class="cal-cell-text">Siena · private tour with Roberta <em>· confirmed 10am</em></div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time a">Afternoon</div>
+        <div class="cal-cell-text">Tenuta di Carleone tasting <em>· confirmed 3pm</em></div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time e">Evening</div>
+        <div class="cal-cell-text">Dinner at hotel or in Radda</div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="cal-row">
+      <div class="cal-day">
+        <div class="cal-day-num">Tue 7</div>
+        <div class="cal-day-label">July</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time m">Morning</div>
+        <div class="cal-cell-text">Ride to Coltibuono · abbey gardens</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time a">Afternoon</div>
+        <div class="cal-cell-text">Coltibuono wine tour + lunch <em>· confirmed 11am</em></div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time e">Evening</div>
+        <div class="cal-cell-text">Osteria Le Panzanelle <em>· confirmed 8pm</em></div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="cal-row">
+      <div class="cal-day">
+        <div class="cal-day-num">Wed 8</div>
+        <div class="cal-day-label">July</div>
+      </div>
+      <div class="cal-cell">
+        <div class="cal-cell-time m">Morning</div>
+        <div class="cal-cell-text">Breakfast · checkout · drive to Florence FLR</div>
+      </div>
+      <div class="cal-cell empty"></div>
+      <div class="cal-cell empty"></div>
+    </div>
+
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-num">Day 1</div>
+      <div class="day-title">Arrival &amp; <em>Settling into Radda</em></div>
+      <div class="day-date">July 4 · Saturday</div>
+    </div>
+    <div class="segments">
+      <div class="seg morning">
+        <div class="seg-label">Morning</div>
+        <div class="seg-activity">Florence arrival + drive to Radda</div>
+        <div class="seg-detail">Fly into Florence, collect rental cars (two cars recommended for 6), and drive south through the Chianti hills to Radda (~1h 10m). The drive itself is part of the experience — the SS222 Chiantigiana through Greve is one of the great scenic roads in Tuscany.</div>
+        <div class="drive-note">SS222 via Greve in Chianti — windows down</div>
+        <div class="seg-timing">~9am depart FLR · arrive Radda ~11am</div>
+      </div>
+      <div class="seg afternoon">
+        <div class="seg-label">Afternoon / Early Evening</div>
+        <div class="seg-activity">Check in · Explore Radda on foot</div>
+        <div class="seg-detail">Check in, have lunch at <em>La Bottega di Giovannino</em> (Via Roma 6 — open since 1965, excellent cured meats and Chianti Classico by the glass). Walk Radda's medieval walls and the <em>Enoteca Bottega del Chianti Classico</em> — the official Consortium shop — for an informal intro to the region's producers.</div>
+        <span class="seg-tag tag-culture">Town exploring</span>
+        <div class="drive-note">Lunch ~€25–35/person · Enoteca tasting free</div>
+        <div class="seg-timing">~11am–1pm check-in &amp; lunch · 2–4pm town walk · Pool 4–6pm</div>
+      </div>
+      <div class="seg evening">
+        <div class="seg-label">Evening</div>
+        <div class="seg-activity">Dinner at Relais Vignale</div>
+        <div class="seg-detail">First night — keep it easy. Dine at the hotel's Ristorante Vignale. The terrace views over the vineyards at dusk are the ideal arrival moment. Classic Tuscan set menu; pair with a glass from the estate wine shop as a warm-up to the days ahead.</div>
+        <span class="seg-tag tag-food">Hotel dinner · confirmed</span>
+        <div class="drive-note">~€45–65/person incl. wine</div>
+        <div class="seg-timing">~7pm drinks on terrace · <strong>8:00pm dinner — confirmed</strong></div>
+      </div>
+    </div>
+    <div class="day-note">No scheduled wine activity today — let the drive through Chianti and the enoteca visit serve as a gentle introduction. Save the energy for Day 2.</div>
+  </div>
+
+  <!-- DAY 2 — Castellina + Castelvecchi winery tour (hotel confirmed) -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-num">Day 2</div>
+      <div class="day-title">Castellina in Chianti &amp; <em>Castelvecchi Winery</em></div>
+      <div class="day-date">July 5 · Sunday</div>
+    </div>
+    <div class="segments">
+      <div class="seg morning">
+        <div class="seg-label">Morning</div>
+        <div class="seg-activity">Castellina in Chianti — Via delle Volte</div>
+        <div class="seg-detail">Drive 12 min west to Castellina in Chianti. Walk <em>Via delle Volte</em> — the ancient covered tunnel running inside the medieval walls with openings looking out over the valley. Browse the small enotecas and ceramics shops; pick up bottles to bring home. Stop at <em>Rampini Ceramics</em> nearby — some of the finest hand-painted Tuscan ceramics in the region.</div>
+        <span class="seg-tag tag-culture">Medieval town</span>
+        <div class="drive-note">~12 min · Free entry · Budget for bottles + ceramics</div>
+        <div class="seg-timing">~9:30am depart · 10am–12pm Castellina · back by 12:15pm</div>
+      </div>
+      <div class="seg afternoon">
+        <div class="seg-label">Afternoon</div>
+        <div class="seg-activity">Castelvecchi Winery — "From the Barrel to the Bottle"</div>
+        <div class="seg-detail">Hotel-arranged private tour of <em>Castelvecchi Winery</em> — a guided visit covering the full production process from barrel aging to bottling, paired with a board of local Chianti products. Transfer included via hotel. Return to Relais Vignale by approximately 4:00pm.</div>
+        <span class="seg-tag tag-wine">Winery tour · confirmed</span>
+        <div class="drive-note">Hotel departure 12:30pm · return ~4:00pm · arranged through Relais Vignale</div>
+        <div class="seg-timing"><strong>12:30pm departure from hotel — confirmed</strong> · return ~4:00pm · pool 4–6pm</div>
+      </div>
+      <div class="seg evening">
+        <div class="seg-label">Evening</div>
+        <div class="seg-activity">Dinner — Osteria Volpaia or Radda</div>
+        <div class="seg-detail">Two easy options after the winery tour: drive 7 min up to Volpaia for dinner at <em>Osteria Volpaia</em> (excellent, farm-driven, right in the village piazza), or stay in Radda and dine at one of the town's restaurants — <em>La Bottega di Giovannino</em> or <em>Ristorante Il Vignale</em> are both solid choices a short walk from the hotel.</div>
+        <span class="seg-tag tag-food">Town dinner</span>
+        <div class="drive-note">Osteria Volpaia ~€40–55/person · Radda restaurants ~€30–45/person</div>
+        <div class="seg-timing">~7:30pm dinner (Volpaia 7 min drive · or walking distance in Radda)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 — Siena + Ama -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-num">Day 3</div>
+      <div class="day-title">Siena &amp; <em>Tenuta di Carleone</em></div>
+      <div class="day-date">July 6 · Monday</div>
+    </div>
+    <div class="segments">
+      <div class="seg morning">
+        <div class="seg-label">Morning</div>
+        <div class="seg-activity">Siena — Private Tour with Roberta Marioni</div>
+        <div class="seg-detail">Guided private tour of Siena's historic centre with <em>Roberta Marioni</em> — the <em>Piazza del Campo</em>, the Duomo di Siena (one of Italy's most spectacular Gothic churches), and the Piccolomini Library. Meet at 10:00am. Contact: <em>+39 347 338 7795</em> · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f3819e92819a9c9d9ab3879a8090929f9add9a87">[email&#160;protected]</a> · guidasiena.it</div>
+        <span class="seg-tag tag-culture">Private tour · confirmed</span>
+        <div class="seg-timing">~9:20am depart · <strong>10:00am tour with Roberta — confirmed</strong> · ~12:30pm lunch in Siena</div>
+      </div>
+      <div class="seg afternoon">
+        <div class="seg-label">Afternoon</div>
+        <div class="seg-activity">Tenuta di Carleone — Classic Tasting</div>
+        <div class="seg-detail">Walk 10 min from the hotel to <em>Tenuta di Carleone</em> — a boutique biodynamic estate in the Radda hills producing some of the most sought-after Chianti Classico in the appellation. Classic Tasting for 6, reserved at 3pm. Small production, intensely personal, and a very different experience from the larger estate tours. No need for a car — walk straight from Relais Vignale.</div>
+        <span class="seg-tag tag-wine">Classic Tasting · confirmed 3pm</span>
+        <div class="drive-note">10 min walk from Relais Vignale</div>
+        <div class="seg-timing">~1pm lunch in Siena · return to Radda ~2:30pm · <strong>3:00pm Carleone tasting — confirmed, 6 guests</strong></div>
+      </div>
+      <div class="seg evening">
+        <div class="seg-label">Evening</div>
+        <div class="seg-activity">Dinner at the hotel or in Radda</div>
+        <div class="seg-detail">After a full day in Siena and the Carleone tasting, an easy evening. Dine at <em>Ristorante Vignale</em> on the hotel terrace, or walk into Radda for dinner at one of the town's restaurants. Pre-dinner drinks on the rooftop terrace as the light fades over the Chianti hills is hard to beat.</div>
+        <span class="seg-tag tag-relax">Hotel or Radda</span>
+        <div class="drive-note">Hotel dinner ~€45–65/person · Radda restaurants ~€30–45/person</div>
+        <div class="seg-timing">~5:30–7pm pool at hotel · 7:30pm terrace drinks · 8pm dinner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 — Coltibuono, confirmed Tuesday -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-num">Day 4</div>
+      <div class="day-title"><em>Badia a Coltibuono</em> &amp; the Abbey</div>
+      <div class="day-date">July 7 · Tuesday</div>
+    </div>
+    <div class="segments">
+      <div class="seg morning">
+        <div class="seg-label">Morning</div>
+        <div class="seg-activity">Ride to Coltibuono — e-bike or scooter optional</div>
+        <div class="seg-detail">A beautiful morning option: rent e-bikes or scooters from Radda and ride through the Chianti hills to Badia a Coltibuono (~15 min, mostly scenic backroads). Arrive early to walk the 11th-century Benedictine abbey and its Renaissance gardens before the tour begins. Alternatively, drive and use the morning for a leisurely hotel breakfast and a walk around Radda.</div>
+        <span class="seg-tag tag-active">E-bike / scooter option</span>
+        <div class="drive-note">~15 min ride or drive · E-bike rental bookable through the hotel concierge</div>
+        <div class="seg-timing">~9am depart by bike/scooter · abbey gardens 9:30–10:45am · ready for 11am tour</div>
+      </div>
+      <div class="seg afternoon">
+        <div class="seg-label">Midday / Afternoon</div>
+        <div class="seg-activity">Coltibuono wine tour at 11am + lunch on-site</div>
+        <div class="seg-detail">Private tasting for 6 at <em>Badia a Coltibuono</em> — the estate pairs their organic Chianti Classico and Vin Santo with charcuterie and local cheeses, walking you through the historic cellars. Lunch reserved at <em>Ristorante Badia a Coltibuono</em> following the tour — one of the best farm-to-table lunches in Chianti, using zero-kilometer ingredients from the estate.</div>
+        <span class="seg-tag tag-wine">Winery tour · confirmed 11am</span>
+        <span class="seg-tag tag-food">Lunch reserved</span>
+        <div class="drive-note">Tour + tasting + charcuterie €45/person · Lunch additional</div>
+        <div class="seg-timing"><strong>11:00am tour — confirmed</strong> · lunch to follow ~12:30pm · back by 3pm · pool 3–5pm</div>
+      </div>
+      <div class="seg evening">
+        <div class="seg-label">Evening</div>
+        <div class="seg-activity">Farewell dinner — Osteria Le Panzanelle</div>
+        <div class="seg-detail">Farewell dinner at <em>Osteria Le Panzanelle</em> (~10 min south of Radda) — reserved for 6 by the hotel. Widely regarded as one of the finest traditional Tuscan kitchens in the Chianti zone; rustic, unpretentious, and exceptional. The perfect send-off.</div>
+        <span class="seg-tag tag-food">Farewell dinner · confirmed</span>
+        <div class="drive-note">~€45–60/person incl. wine · Michelin Bib Gourmand · ~10 min from Radda</div>
+        <div class="seg-timing">~4–5:30pm pool back at hotel · 6pm aperitivo in Radda · <strong>8:00pm dinner — confirmed, 6 guests</strong></div>
+      </div>
+    </div>
+    <div class="day-note">If riding by e-bike or scooter to Coltibuono, book through the hotel concierge the evening before — they have established rental contacts in Radda.</div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-num">Day 5</div>
+      <div class="day-title"><em>Departure</em> Morning</div>
+      <div class="day-date">July 8 · Wednesday</div>
+    </div>
+    <div class="segments" style="grid-template-columns:1fr;">
+      <div class="seg morning">
+        <div class="seg-label">Morning</div>
+        <div class="seg-activity">Checkout &amp; drive to Florence Airport</div>
+        <div class="seg-detail">Breakfast at Relais Vignale, then check out and drive north to Florence via the SS222 Chiantigiana through Greve in Chianti (~1h 10m). Drop rental cars at Florence Peretola (FLR) — allow 90 min before departure. FLR is a small, fast airport.</div>
+        <span class="seg-tag tag-relax">Departure day</span>
+        <div class="drive-note">Radda → Florence FLR ~1h 10m via SS222 through Greve</div>
+        <div class="seg-timing">~8am breakfast · 9:30am checkout · depart by 10am</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALTERNATIVES -->
+  <div class="alternatives">
+    <div class="alt-header">
+      <h3>Alternative &amp; Optional Activities</h3>
+      <p>Swap into any day, or add to a free afternoon</p>
+    </div>
+    <div class="alt-grid">
+      <div class="alt-card">
+        <div class="alt-card-name">Truffle Hunting <span class="seg-tag tag-active">Outdoors</span></div>
+        <div class="alt-card-detail">A 2h private hunt with a local <em>trufarolo</em> and their dogs through the oak woods near Radda. July yields summer truffles — lighter than winter black, but the hunting experience is the point. Ends with a tasting paired with local oils and wine. Groups of 6 are ideal. ~€60–80/person.</div>
+        <div class="alt-swap">Best swap: replace the Castellina morning on Day 2, or add to any free afternoon.</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-name">Chianti Cooking Class <span class="seg-tag tag-food">Hands-on</span></div>
+        <div class="alt-card-detail">A 3h private class for 6 covering fresh pasta, ribollita, and a Tuscan dessert. Two good options: <em>Vignale Cooking Classes</em> on-site or <em>Badia a Coltibuono's Cooking School</em> (15 min away, consistently top-rated). Typically runs as a morning session ending with eating what you made. ~€80–120/person.</div>
+        <div class="alt-swap">Best swap: morning of Day 2 or Day 4 in place of the Castellina visit or hike.</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-name">E-Bike Tour through the Vineyards <span class="seg-tag tag-active">Active</span></div>
+        <div class="alt-card-detail">Guided e-bike tours out of Radda — typically 3–4h covering 20–30km of Chianti Classico backroads through vineyards, olive groves, and hilltop villages. <em>Chianti by Bike</em> and <em>DiVine Tours</em> (Radda-based) both well-reviewed. Good for a morning where you want to earn the afternoon tasting. ~€50–70/person.</div>
+        <div class="alt-swap">Best fit: morning of Day 3 instead of Siena, or a standalone active day.</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-name">Castello di Albola or Monterinaldi <span class="seg-tag tag-wine">Winery</span></div>
+        <div class="alt-card-detail">Two strong fourth-winery options. <em>Castello di Albola</em> (Radda, ~10 min) is a classic Chianti Classico producer with castle views and a well-regarded tasting room. <em>Castello Monterinaldi</em> (also Radda zone) is a smaller, intimate family estate with a sommelier-led cellar tour and food pairing. ~€25–45/person.</div>
+        <div class="alt-swap">Best slot: a free afternoon, or swap in for the Castellina morning on Day 2.</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-name">Hot Air Balloon over Chianti <span class="seg-tag tag-active">Scenic</span></div>
+        <div class="alt-card-detail">Dawn departure (5:30–6am), 1–1.5h flight, champagne breakfast on landing. Bookable through the Vignale concierge. July weather generally favorable but subject to wind. ~€250–320/person.</div>
+        <div class="alt-swap">Early morning on any day — pairs perfectly with a relaxed afternoon at the hotel pool.</div>
+      </div>
+      <div class="alt-card">
+        <div class="alt-card-name">Greve in Chianti Market &amp; Enoteca Falorni <span class="seg-tag tag-culture">Town day</span></div>
+        <div class="alt-card-detail">Greve's Saturday market in <em>Piazza Matteotti</em> — local producers, ceramics, food, and wine. <em>Enoteca Falorni</em> offers self-
